@@ -3,7 +3,7 @@ from bson.json_util import dumps
 import json
 from typing import Optional, Literal
 from utils import dbutils
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
@@ -80,13 +80,15 @@ def get_application(app_id: int):
 @app.post('/create-app/')
 def create_application(job_app: JobApp):
     # first has to check if ID exists
-    apps = [json.loads(dumps(x)) for x in db.find({})]
+    _apps = [json.loads(dumps(x)) for x in db.find({})]
+    apps = [json.loads(dumps(x)) for x in _apps]
     for app in apps:
         if app['appID'] == job_app.appID:
-            return {'error': f'already have record for ID: {app["appID"]}'}
-        else:
-            db.insert_one(jsonable_encoder(job_app))
-            return job_app
+            # return {'error': f'already have record for ID: {app["appID"]}'}
+            raise HTTPException(status_code=409, detail="duplicate entry")
+
+    db.insert_one(jsonable_encoder(job_app))
+    return job_app
 
 
 @app.put('/update-app/')

@@ -1,21 +1,36 @@
 import axios from 'axios'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function CreateApp () {
   const today = new Date()
+  const [failure, setFailure] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const router = useRouter()
+
   const onSubmitForm = (e) => {
     e.preventDefault()
-    const formData = new FormData(e.target)
+    const formData = new FormData(e.target) // eslint-disable-line
     const body = {}
     formData.forEach((value, property) => (body[property] = value))
-    // body.dateUpdated = today.toISOString()
-    body.dateUpdated = '2021-06-12'
-    console.table(body)
-    console.log(body)
-    axios.post('http://127.0.0.1:8000/create-app/', body, { headers: { 'Content-Type': 'application/json' } }).then(res => console.log(res.data))
+    body.dateUpdated = today.toISOString().substr(0, 10)
+    // body.dateUpdated = '2021-06-12'
+    axios.post('http://127.0.0.1:8000/create-app/', body, { headers: { 'Content-Type': 'application/json' } })
+      .then(res => {
+        console.log(res.data)
+        router.push('/success')
+      })
+      .catch(error => {
+        console.log(error.response.data)
+        setErrorMessage(error.response.data.detail)
+        setFailure(true)
+      })
   }
 
   return (
-    <div className='min-h-full flex-grow flex justify-center items-center'>
+    <div className='min-h-full flex-grow flex flex-col justify-center items-center'>
+      {failure ? <div className='w-1/2 h-10 my-1 flex justify-center items-center rounded-md bg-red-500'><h3 className='text-xl text-white'>Error: {errorMessage}</h3></div> : null}
       <form className='flex flex-col w-1/2 bg-blue-800 p-4 rounded-md' onSubmit={e => onSubmitForm(e)}>
         <label htmlFor='appID'>
           <p className='text-white mb-1'>App ID:</p>
@@ -67,10 +82,10 @@ export default function CreateApp () {
           </select>
         </label>
         <label htmlFor='notes'>
-          <p className='text-white mb-1 mt-9'>Notes:</p>
-          <textarea className='mb-2 h-28px-4 py-1 w-1/2 focus:outline-none' type='date' id='notes' name='notes' />
+          <p className='text-white mb-1 mt-9'>Notes (optional):</p>
+          <textarea className='mb-2 h-28px-4 py-1 px-1 w-1/2 focus:outline-none' type='date' id='notes' name='notes' />
         </label>
-        <button type='submit' className='bg-green-400 text-white w-28 px-1 py-2 rounded-md hover:bg-green-500'>Submit</button>
+        <button type='submit' className='bg-green-400 text-white font-bold w-28 px-1 py-2 rounded-md hover:bg-green-500 focus:outline-none'>Submit</button>
       </form>
     </div>
   )
