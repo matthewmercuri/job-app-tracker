@@ -75,10 +75,10 @@ export default function CreateApp () {
         <label htmlFor='medium'>
           <p className='text-white mb-1'>Medium:</p>
           <select className='w-1/3 mb-2 px-4 py-1 focus:outline-none' id='medium' name='medium' required>
-            <option value='linkedin'>LinkedIn</option>
-            <option value='indeed'>Indeed</option>
-            <option value='direct'>Direct</option>
-            <option value='other'>Other</option>
+            <option value='LinkedIn'>LinkedIn</option>
+            <option value='Indeed'>Indeed</option>
+            <option value='Direct'>Direct</option>
+            <option value='Other'>Other</option>
           </select>
         </label>
         <label htmlFor='notes'>
