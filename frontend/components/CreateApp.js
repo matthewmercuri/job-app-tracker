@@ -31,7 +31,7 @@ export default function CreateApp () {
   return (
     <div className='min-h-full flex-grow flex flex-col justify-center items-center'>
       {failure ? <div className='w-1/2 h-10 my-1 flex justify-center items-center rounded-md bg-red-500'><h3 className='text-xl text-white'>Error: {errorMessage}</h3></div> : null}
-      <form className='flex flex-col w-1/2 bg-blue-800 p-4 rounded-md' onSubmit={e => onSubmitForm(e)}>
+      <form className='flex flex-col w-1/2 bg-gray-800 p-4 rounded-md' onSubmit={e => onSubmitForm(e)}>
         <label htmlFor='appID'>
           <p className='text-white mb-1'>App ID:</p>
           <input className='mb-2 px-4 py-1 focus:outline-none' type='number' id='appID' name='appID' placeholder='App ID' min={0} required />

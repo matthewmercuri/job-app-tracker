@@ -1,8 +1,10 @@
 import axios from 'axios'
 
+import App from '../components/App'
+
 export default function id ({ app }) {
   return (
-    <p>{JSON.stringify(app, null, 2)}</p>
+    <App app={app} />
   )
 }
 
