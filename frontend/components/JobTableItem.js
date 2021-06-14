@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function JobTableItem ({ data }) {
   let badgeColor
   switch (data.status) {
@@ -26,15 +28,17 @@ export default function JobTableItem ({ data }) {
       badgeColor = 'bg-black'
   }
   return (
-    <tr className='bg-gray-700 border-b-8 h-16'>
-      <td className='text-center text-white font-light'>{data.appID}</td>
-      <td className='text-center text-white font-bold'>{data.employer}</td>
-      <td className='text-center text-white font-bold'>{data.position}</td>
-      <td className='text-center text-white'>{data.dateApplied}</td>
-      <td className='text-center text-white'>{data.dateUpdated}</td>
-      <td className='text-center text-white'>{data.medium}</td>
-      {/* cant apply box shadow */}
-      <td><div className={`text-center text-white font-bold py-2 mx-2 rounded-md ${badgeColor}`}>{data.status}</div></td>
-    </tr>
+    <Link href={`${data.appID}`}>
+      <tr className='bg-gray-700 border-b-8 h-16 cursor-pointer'>
+        <td className='text-center text-white font-light'>{data.appID}</td>
+        <td className='text-center text-white font-bold'>{data.employer}</td>
+        <td className='text-center text-white font-bold'>{data.position}</td>
+        <td className='text-center text-white'>{data.dateApplied}</td>
+        <td className='text-center text-white'>{data.dateUpdated}</td>
+        <td className='text-center text-white'>{data.medium}</td>
+        {/* cant apply box shadow */}
+        <td><div className={`text-center text-white font-bold py-2 mx-2 rounded-md ${badgeColor}`}>{data.status}</div></td>
+      </tr>
+    </Link>
   )
 }

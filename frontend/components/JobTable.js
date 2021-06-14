@@ -50,11 +50,11 @@ export default function JobTable () {
     <table>
       <thead>
         <tr className='bg-gray-800 border-b-8'>
-          <th className='text-white' onClick={() => setSortType('appID')}>App ID</th>
+          <th className='text-white cursor-pointer' onClick={() => setSortType('appID')}>App ID</th>
           <th className='text-white'>Employer</th>
           <th className='text-white'>Position</th>
-          <th className='text-white' onClick={() => setSortType('dateApplied')}>Date Applied</th>
-          <th className='text-white' onClick={() => setSortType('dateUpdated')}>Date Updated</th>
+          <th className='text-white cursor-pointer' onClick={() => setSortType('dateApplied')}>Date Applied</th>
+          <th className='text-white cursor-pointer' onClick={() => setSortType('dateUpdated')}>Date Updated</th>
           <th className='text-white'>Medium</th>
           <th className='text-white'>Status</th>
         </tr>
