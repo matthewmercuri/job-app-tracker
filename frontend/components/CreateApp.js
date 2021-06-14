@@ -31,38 +31,38 @@ export default function CreateApp () {
   return (
     <div className='min-h-full flex-grow flex flex-col justify-center items-center'>
       {failure ? <div className='w-1/2 h-10 my-1 flex justify-center items-center rounded-md bg-red-500'><h3 className='text-xl text-white'>Error: {errorMessage}</h3></div> : null}
-      <form className='flex flex-col w-1/2 bg-gray-800 p-4 rounded-md' onSubmit={e => onSubmitForm(e)}>
+      <form className='flex flex-col w-1/2 bg-gray-800 p-4 rounded-md text-white' onSubmit={e => onSubmitForm(e)}>
         <label htmlFor='appID'>
-          <p className='text-white mb-1'>App ID:</p>
-          <input className='mb-2 px-4 py-1 focus:outline-none' type='number' id='appID' name='appID' placeholder='App ID' min={0} required />
+          <p className=' mb-1'>App ID:</p>
+          <input className='mb-2 px-4 py-1 bg-gray-700 focus:outline-none' type='number' id='appID' name='appID' placeholder='App ID' min={0} required />
         </label>
         <label htmlFor='employer'>
-          <p className='text-white mb-1'>Employer:</p>
-          <input className='mb-2 px-4 py-1 focus:outline-none' type='text' id='employer' name='employer' placeholder='employer' required />
+          <p className=' mb-1'>Employer:</p>
+          <input className='mb-2 px-4 py-1 bg-gray-700 focus:outline-none' type='text' id='employer' name='employer' placeholder='employer' required />
         </label>
         <label htmlFor='position'>
-          <p className='text-white mb-1'>Position:</p>
-          <input className='mb-2 px-4 py-1 focus:outline-none' type='text' id='position' name='position' placeholder='position' required />
+          <p className=' mb-1'>Position:</p>
+          <input className='mb-2 px-4 py-1 bg-gray-700 focus:outline-none' type='text' id='position' name='position' placeholder='position' required />
         </label>
         <label htmlFor='industry'>
-          <p className='text-white mb-1'>Industry:</p>
-          <input className='mb-2 px-4 py-1 focus:outline-none' type='text' id='industry' name='industry' placeholder='industry' required />
+          <p className=' mb-1'>Industry:</p>
+          <input className='mb-2 px-4 py-1 bg-gray-700 focus:outline-none' type='text' id='industry' name='industry' placeholder='industry' required />
         </label>
         <label htmlFor='resumeFileName'>
-          <p className='text-white mb-1 mt-9'>Resume File Name (Optional):</p>
-          <input className='mb-2 w-1/3 px-4 py-1 focus:outline-none' type='text' id='resumeFileName' name='resumeFileName' placeholder='resume file name' />
+          <p className=' mb-1 mt-9'>Resume File Name (Optional):</p>
+          <input className='mb-2 w-1/3 px-4 py-1 bg-gray-700  focus:outline-none' type='text' id='resumeFileName' name='resumeFileName' placeholder='resume file name' />
         </label>
         <label htmlFor='coverLetterFileName'>
-          <p className='text-white mb-1'>Cover Letter File Name (Optional):</p>
-          <input className='mb-2 w-1/3 px-4 py-1 focus:outline-none' type='text' id='coverLetterFileName' name='coverLetterFileName' placeholder='cover letter file name' />
+          <p className=' mb-1'>Cover Letter File Name (Optional):</p>
+          <input className='mb-2 w-1/3 px-4 py-1 bg-gray-700 focus:outline-none' type='text' id='coverLetterFileName' name='coverLetterFileName' placeholder='cover letter file name' />
         </label>
         <label htmlFor='dateApplied'>
-          <p className='text-white mb-1 mt-9'>Date Applied:</p>
-          <input className='mb-2 px-4 py-1 focus:outline-none' type='date' id='dateApplied' name='dateApplied' required />
+          <p className=' mb-1 mt-9'>Date Applied:</p>
+          <input className='mb-2 px-4 py-1 bg-gray-700 focus:outline-none' type='date' id='dateApplied' name='dateApplied' required />
         </label>
         <label htmlFor='status'>
-          <p className='text-white mb-1'>Status:</p>
-          <select className='w-1/3 mb-2 px-4 py-1 focus:outline-none' id='status' name='status' required>
+          <p className=' mb-1'>Status:</p>
+          <select className='w-1/3 mb-2 px-4 py-1 bg-gray-700 focus:outline-none' id='status' name='status' required>
             <option value='applied'>Applied</option>
             <option value='planned'>Planned</option>
             <option value='rejected'>Rejected</option>
@@ -73,8 +73,8 @@ export default function CreateApp () {
           </select>
         </label>
         <label htmlFor='medium'>
-          <p className='text-white mb-1'>Medium:</p>
-          <select className='w-1/3 mb-2 px-4 py-1 focus:outline-none' id='medium' name='medium' required>
+          <p className=' mb-1'>Medium:</p>
+          <select className='w-1/3 mb-2 px-4 py-1 bg-gray-700  focus:outline-none' id='medium' name='medium' required>
             <option value='LinkedIn'>LinkedIn</option>
             <option value='Indeed'>Indeed</option>
             <option value='Direct'>Direct</option>
@@ -82,8 +82,8 @@ export default function CreateApp () {
           </select>
         </label>
         <label htmlFor='notes'>
-          <p className='text-white mb-1 mt-9'>Notes (optional):</p>
-          <textarea className='mb-2 h-28 px-4 py-1 w-1/2 focus:outline-none' type='date' id='notes' name='notes' />
+          <p className=' mb-1 mt-9'>Notes (optional):</p>
+          <textarea className='mb-2 h-28 px-4 py-1 bg-gray-700 w-1/2 focus:outline-none' type='date' id='notes' name='notes' />
         </label>
         <button type='submit' className='bg-green-400 text-white font-bold w-28 px-1 py-2 rounded-md hover:bg-green-500 focus:outline-none'>Submit</button>
       </form>

@@ -28,7 +28,7 @@ export default function JobTableItem ({ data }) {
       badgeColor = 'bg-black'
   }
   return (
-    <Link href={`${data.appID}`}>
+    <Link href={`/app/${data.appID}`}>
       <tr className='bg-gray-700 border-b-8 h-16 cursor-pointer'>
         <td className='text-center text-white font-light'>{data.appID}</td>
         <td className='text-center text-white font-bold'>{data.employer}</td>
