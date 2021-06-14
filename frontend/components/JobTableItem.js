@@ -30,6 +30,7 @@ export default function JobTableItem ({ data }) {
       <td className='text-center text-white font-light'>{data.appID}</td>
       <td className='text-center text-white font-bold'>{data.employer}</td>
       <td className='text-center text-white font-bold'>{data.position}</td>
+      <td className='text-center text-white'>{data.dateApplied}</td>
       <td className='text-center text-white'>{data.dateUpdated}</td>
       <td className='text-center text-white'>{data.medium}</td>
       {/* cant apply box shadow */}

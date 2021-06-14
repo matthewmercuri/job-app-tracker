@@ -14,7 +14,7 @@ export default function CreateApp () {
     const formData = new FormData(e.target) // eslint-disable-line
     const body = {}
     formData.forEach((value, property) => (body[property] = value))
-    body.dateUpdated = today.toISOString().substr(0, 10)
+    body.dateUpdated = today.toISOString().substr(0, 10) // just make equal to date applied?
     // body.dateUpdated = '2021-06-12'
     axios.post('http://127.0.0.1:8000/create-app/', body, { headers: { 'Content-Type': 'application/json' } })
       .then(res => {
