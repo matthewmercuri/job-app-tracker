@@ -5,6 +5,8 @@ export default function Modify ({ app }) {
   const today = new Date()
   const router = useRouter()
 
+  const notes = app.notes
+
   const onSubmitForm = (e) => {
     e.preventDefault()
     const formData = new FormData(e.target) // eslint-disable-line
@@ -46,7 +48,7 @@ export default function Modify ({ app }) {
         </label>
         <label htmlFor='notes'>
           <p className='text-white text-2xl mb-3'>Notes (optional):</p>
-          <textarea className=' text-white text-xl mb-2 px-4 py-1 w-full h-96 focus:outline-none bg-gray-700 rounded-md' type='date' id='notes' name='notes' defaultValue={app.notes} />
+          <textarea className=' text-white text-xl mb-2 px-4 py-1 w-full h-96 focus:outline-none bg-gray-700 rounded-md' type='date' id='notes' name='notes' defaultValue={notes} />
         </label>
         <button type='submit' className='bg-green-400 text-white mx-auto font-bold text-xl w-32 px-1 py-4 rounded-md hover:bg-green-500 focus:outline-none'>Update</button>
       </form>

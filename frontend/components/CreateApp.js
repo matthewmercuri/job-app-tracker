@@ -49,12 +49,12 @@ export default function CreateApp () {
           <input className='mb-2 px-4 py-1 focus:outline-none' type='text' id='industry' name='industry' placeholder='industry' required />
         </label>
         <label htmlFor='resumeFileName'>
-          <p className='text-white mb-1 mt-9'>Resume File Name:</p>
-          <input className='mb-2 w-1/3 px-4 py-1 focus:outline-none' type='text' id='resumeFileName' name='resumeFileName' placeholder='resume file name' required />
+          <p className='text-white mb-1 mt-9'>Resume File Name (Optional):</p>
+          <input className='mb-2 w-1/3 px-4 py-1 focus:outline-none' type='text' id='resumeFileName' name='resumeFileName' placeholder='resume file name' />
         </label>
         <label htmlFor='coverLetterFileName'>
-          <p className='text-white mb-1'>Cover Letter File Name:</p>
-          <input className='mb-2 w-1/3 px-4 py-1 focus:outline-none' type='text' id='coverLetterFileName' name='coverLetterFileName' placeholder='cover letter file name' required />
+          <p className='text-white mb-1'>Cover Letter File Name (Optional):</p>
+          <input className='mb-2 w-1/3 px-4 py-1 focus:outline-none' type='text' id='coverLetterFileName' name='coverLetterFileName' placeholder='cover letter file name' />
         </label>
         <label htmlFor='dateApplied'>
           <p className='text-white mb-1 mt-9'>Date Applied:</p>

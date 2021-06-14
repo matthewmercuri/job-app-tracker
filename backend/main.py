@@ -14,8 +14,8 @@ class JobApp(BaseModel):
     appID: int
     employer: str
     position: str
-    resumeFileName: str
-    coverLetterFileName: str
+    resumeFileName: Optional[str]
+    coverLetterFileName: Optional[str]
     dateApplied: datetime.date
     dateUpdated: datetime.date
     status: Literal['planned', 'applied', 'rejected', 'interview',
