@@ -1,11 +1,17 @@
+import Head from 'next/head'
 import Layout from '../components/Layout'
 import 'tailwindcss/tailwind.css'
 
 function MyApp ({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <title>Job App Tracker</title>
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
 }
 

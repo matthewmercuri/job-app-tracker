@@ -94,6 +94,7 @@ def create_application(job_app: JobApp):
 @app.put('/update-app/')
 def update_application(job_app: UpdateJobApp):
     j = {k: v for k, v in job_app.dict().items() if v is not None}
+    j['dateUpdated'] = j['dateUpdated'].strftime("%Y-%m-%d")
     app = db.find_one_and_update({"appID": j['appID']}, {"$set": j},
                                  upsert=False,
                                  return_document=ReturnDocument.AFTER)
