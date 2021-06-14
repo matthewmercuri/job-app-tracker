@@ -83,7 +83,7 @@ export default function CreateApp () {
         </label>
         <label htmlFor='notes'>
           <p className='text-white mb-1 mt-9'>Notes (optional):</p>
-          <textarea className='mb-2 h-28px-4 py-1 px-1 w-1/2 focus:outline-none' type='date' id='notes' name='notes' />
+          <textarea className='mb-2 h-28 px-4 py-1 w-1/2 focus:outline-none' type='date' id='notes' name='notes' />
         </label>
         <button type='submit' className='bg-green-400 text-white font-bold w-28 px-1 py-2 rounded-md hover:bg-green-500 focus:outline-none'>Submit</button>
       </form>

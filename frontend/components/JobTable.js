@@ -33,7 +33,6 @@ export default function JobTable () {
   }
 
   useEffect(() => {
-    console.log('triggered')
     if (sortType === 'appID' && data) {
       sortID()
     } else if (sortType === 'dateUpdated' && data) {
