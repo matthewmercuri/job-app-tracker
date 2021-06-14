@@ -1,5 +1,6 @@
 import axios from 'axios'
 import useSWR from 'swr'
+import { useState } from 'react'
 
 import JobTableItem from '../components/JobTableItem'
 
@@ -8,10 +9,30 @@ const fetcher = url => axios.get(url).then(res => res.data)
 export default function data () {
   const { data, error } = useSWR('http://127.0.0.1:8000/get-all-apps/', fetcher)
 
+  const [sortType, setSortType] = useState('appID')
+
+  const triggerUpdated = () => setSortType('dateUpdated')
+
+  const sortID = () => data.sort((a, b) => {
+    return a.appID - b.appID
+  })
+
+  const sortUpdated = () => data.sort((a, b) => {
+    return new Date(a.dateUpdated) - new Date(b.dateUpdated)
+  })
+
+  // maybe useEffect
+  if (data && (sortType === 'appID')) {
+    sortID()
+  } else if (data && (sortType === 'dateUpdated')) {
+    sortUpdated()
+  }
+
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
+
   return (
-    <div className='flex flex-col w-4/5 mx-auto my-10'>
+    <div className='flex flex-col w-3/5 mx-auto my-10'>
       <table>
         <tr className='bg-gray-800 border-b-8'>
           <th className='text-white'>App ID</th>
