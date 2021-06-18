@@ -55,6 +55,7 @@ export default function JobTable () {
           <th className='text-white cursor-pointer' onClick={() => setSortType('dateApplied')}>Date Applied</th>
           <th className='text-white cursor-pointer' onClick={() => setSortType('dateUpdated')}>Date Updated</th>
           <th className='text-white'>Medium</th>
+          <th className='text-white'>Days Since Applied</th>
           <th className='text-white'>Status</th>
         </tr>
       </thead>

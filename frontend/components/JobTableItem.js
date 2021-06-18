@@ -27,6 +27,25 @@ export default function JobTableItem ({ data }) {
     default:
       badgeColor = 'bg-black'
   }
+
+  const today = new Date()
+  const daysSinceCalc = () => {
+    const ONEDAY = 1000 * 60 * 60 * 24
+    const differenceMs = Math.abs(today - (new Date(data.dateApplied)))
+    return Math.round(differenceMs / ONEDAY)
+  }
+
+  const daysSince = daysSinceCalc()
+
+  let daysSinceColour
+  if (daysSince >= 14) {
+    daysSinceColour = 'bg-red-500'
+  } else if (daysSince > 10) {
+    daysSinceColour = 'bg-yellow-500'
+  } else {
+    daysSinceColour = 'bg-green-500'
+  }
+
   return (
     <Link href={`/app/${data.appID}`}>
       <tr className='bg-gray-700 border-b-8 h-16 cursor-pointer'>
@@ -36,6 +55,7 @@ export default function JobTableItem ({ data }) {
         <td className='text-center text-white'>{data.dateApplied}</td>
         <td className='text-center text-white'>{data.dateUpdated}</td>
         <td className='text-center text-white'>{data.medium}</td>
+        <td className='text-center text-white'><span className={`${daysSinceColour} py-2 px-5 rounded-md font-bold`}>{daysSince}</span></td>
         {/* cant apply box shadow */}
         <td><div className={`text-center text-white font-bold py-2 mx-2 rounded-md ${badgeColor}`}>{data.status}</div></td>
       </tr>
