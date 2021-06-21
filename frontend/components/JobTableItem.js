@@ -19,7 +19,7 @@ export default function JobTableItem ({ data }) {
       badgeColor = 'bg-blue-700'
       break
     case 'stale':
-      badgeColor = 'bg-pink-400'
+      badgeColor = 'bg-yellow-500'
       break
     case 'offer':
       badgeColor = 'bg-green-700'
