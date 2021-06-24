@@ -12,7 +12,7 @@ export default function App ({ app }) {
       badgeColor = 'bg-green-500'
       break
     case 'rejected':
-      badgeColor = 'bg-red-600'
+      badgeColor = 'bg-red-500'
       break
     case 'interview':
       badgeColor = 'bg-blue-600'
