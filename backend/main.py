@@ -87,6 +87,8 @@ def create_application(job_app: JobApp):
             # return {'error': f'already have record for ID: {app["appID"]}'}
             raise HTTPException(status_code=409, detail="duplicate entry")
 
+    # ids = [x['appID'] for x in apps]
+
     db.insert_one(jsonable_encoder(job_app))
     return job_app
 

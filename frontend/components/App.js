@@ -1,4 +1,5 @@
 import Modify from '../components/Modify'
+import DeleteApp from '../components/DeleteApp'
 
 export default function App ({ app }) {
   app = app[0]
@@ -33,17 +34,20 @@ export default function App ({ app }) {
   return (
     <div className='flex-grow flex items-center justify-center'>
       <Modify app={app} />
-      <div className='bg-gray-800 w-2/6 flex flex-col items-center justify-center py-4 px-8 h-2/5 rounded-md shadow-xl text-center text-white'>
-        <p className={`text-center w-3/5 font-bold capitalize text-2xl ${badgeColor} py-2 rounded-md`}>{app.status}</p>
-        <div className='text-xl my-6 flex justify-center'>
-          <p className='mr-16 font-light'>Date Applied: <span className='font-bold'>{app.dateApplied}</span></p>
-          <p className='font-light'>Last Updated: <span className='font-bold'>{app.dateUpdated}</span></p>
+      <div className='flex flex-col justify-between items-center h-4/5'>
+        <div className='bg-gray-800 w-full flex flex-col items-center justify-center py-4 px-8 h-2/5 rounded-md shadow-xl text-center text-white'>
+          <p className={`text-center w-3/5 font-bold capitalize text-2xl ${badgeColor} py-2 rounded-md`}>{app.status}</p>
+          <div className='text-xl my-6 flex justify-center'>
+            <p className='mr-16 font-light'>Date Applied: <span className='font-bold'>{app.dateApplied}</span></p>
+            <p className='font-light'>Last Updated: <span className='font-bold'>{app.dateUpdated}</span></p>
+          </div>
+          <div className='w-4/5 bg-gray-700 py-2 rounded-md'>
+            <p className='text-xl text-gray-400'>{app.employer}</p>
+            <p className='text-3xl font-bold'>{app.position}</p>
+          </div>
+          <p className='mt-6 font-light text-xl'>Applied Through: <span className='font-bold'>{app.medium}</span></p>
         </div>
-        <div className='w-4/5 bg-gray-700 py-2 rounded-md'>
-          <p className='text-xl text-gray-400'>{app.employer}</p>
-          <p className='text-3xl font-bold'>{app.position}</p>
-        </div>
-        <p className='mt-6 font-light text-xl'>Applied Through: <span className='font-bold'>{app.medium}</span></p>
+        <DeleteApp appID={app.appID} />
       </div>
     </div>
   )
